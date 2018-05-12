@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Com.LuisPedroFonseca.ProCamera2D;
-using UnityEditorInternal.VR;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -68,19 +67,12 @@ public class PlayerHealth : MonoBehaviour
         gameOverCoroutine = null;
     }
 
-    //Not currently working properly
     public void ZoomInOnWinner()
     {
 
         ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
         ProCamera2D.Instance.Zoom(dZoom, dZoomDuration, EaseType.EaseIn);
-        //Invoke("DisableLate", dZoom * 2);
         gameObject.SetActive(false);
     }
-
-    /*private void DisableLate()
-    {
-        ProCamera2D.Instance.enabled = false;
-    }*/
 
 }
