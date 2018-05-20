@@ -10,6 +10,10 @@ public class Player : MonoBehaviour {
         ctrlr = controller;
         PID = playerID;
     }
+    public string GetController()
+    {
+        return ctrlr;
+    }
     public int GetPID()
     {
         return PID;
