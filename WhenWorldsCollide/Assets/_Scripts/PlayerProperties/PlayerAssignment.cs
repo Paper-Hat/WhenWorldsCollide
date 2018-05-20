@@ -13,12 +13,12 @@ public class PlayerAssignment : MonoBehaviour {
     }
     private void DeterminePlayerInput()
     {
-        if (Input.GetButton("0s")){
+        if (Input.GetButton("0sK") || Input.GetButton("0sJ")){
             if (!pselected[0])
                 players.Add(new Player("0", PCtr++));
             pselected[0] = true;
         }
-        else if (Input.GetButton("1s")){
+        else if (Input.GetButton("1sK") || Input.GetButton("1sJ")){
             if (!pselected[1])
                 players.Add(new Player("1", PCtr++));
             pselected[1] = true;
@@ -33,5 +33,6 @@ public class PlayerAssignment : MonoBehaviour {
                 players.Add(new Player("3", PCtr++));
             pselected[3] = true;
         }
+
     }
 }
