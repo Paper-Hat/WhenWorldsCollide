@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour {
 
+    [SerializeField]
     public List<Player> players;
+    [SerializeField]
     private bool[] pselected = new bool[4];
+
     private int PCtr = 0;
     private void Update(){
         DeterminePlayerInput();

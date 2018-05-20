@@ -10,7 +10,10 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
     private int PID;
+    [SerializeField]
+    private string ctrlrToUse;
 
     [SerializeField]
     private UnityEvent onBoost;
@@ -22,36 +25,14 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("In Seconds")]
     [SerializeField]
     private float knockBackDuration;
-
-    //Disabled - removed customization
-    /*[SerializeField]
-    private KeyCode Up;
-
-    [SerializeField]
-    private KeyCode Left;
-
-    [SerializeField]
-    private KeyCode Down;
-
-    [SerializeField]
-    private KeyCode Right;
-
-    [SerializeField]
-    private KeyCode Boost;*/
-
     [SerializeField]
     private float moveSpeed;
-
-
     [SerializeField]
     private float minMoveSpeed = 2f;
-
     [SerializeField]
     private float minBoostSpeed = 12f;
-
     [SerializeField]
     private float boostSpeedMultiplier;
-
     [SerializeField]
     private PlayerPickUpHandler pickupHandler;
 
@@ -86,35 +67,21 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidB = GetComponent<Rigidbody2D>();
         this.PID = GetComponentInParent<Player>().GetPID();
+        ctrlrToUse = GetComponentInParent<Player>().GetController();
     }
 
     void Update ()
     {
         if (!isBoosting && !isKnocked)
         {
-             moveDirection = Vector2.zero;
-
-            //Disabled for testing
-            /*if (Input.GetKey(Up) || Input.GetAxis("Y") > 0)
-                moveDirection.y++;
-
-            if (Input.GetKey(Down) || Input.GetAxis("Y") < 0)
-                moveDirection.y--;
-
-            if (Input.GetKey(Right) || Input.GetAxis("X") > 0)
-                moveDirection.x++;
-
-            if (Input.GetKey(Left) || Input.GetAxis("X") < 0)
-                moveDirection.x--;
-                */
-            moveDirection.x = Input.GetAxis("Horizontal" + PID);
-            moveDirection.y = Input.GetAxis("Vertical" + PID);
+            moveDirection = Vector2.zero;
+            moveDirection.x = Input.GetAxis(ctrlrToUse + "Horizontal");
+            moveDirection.y = Input.GetAxis(ctrlrToUse + "Vertical");
             moveDirection = moveDirection.normalized;
             rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
             transform.right = rigidB.velocity.normalized;
         }
-        //Disabled manual input definitions
-        if (/*Input.GetKeyDown(Boost) ||*/ Input.GetButtonDown("Fire" + PID))
+        if (Input.GetButtonDown(ctrlrToUse + "Boost"))
         {
             if (boostCoroutine == null)
             {
