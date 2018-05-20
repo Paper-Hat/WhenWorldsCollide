@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
-        this.PID = GetComponentInParent<PlayerAssignment>().GetPID();
+        //this.PID = GetComponentInParent<PlayerAssignment>().GetPID();
     }
 
     void Update ()

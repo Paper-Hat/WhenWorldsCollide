@@ -2087,14 +2087,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedf112254f21ec42b244ae5e751325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1SpriteArray:
-  - {fileID: 21300000, guid: 0643a7f0b3e7d1346a75dd23abd9d576, type: 3}
-  - {fileID: 21300000, guid: c19a0ef435fe1054ba5aa1b29e179ba6, type: 3}
-  - {fileID: 21300000, guid: 35ee5af4363399240a0950d6a1d58478, type: 3}
-  p2SpriteArray:
-  - {fileID: 21300000, guid: e7f259ca79fd6bd419718a2701199cc8, type: 3}
-  - {fileID: 21300000, guid: bdd20be3b53f4d94589e1f6b8661a4d6, type: 3}
-  - {fileID: 21300000, guid: b591c4f7d1702574aaf4de09790e963a, type: 3}
+  Players:
+  - sprites: []
+    skinSelect: {fileID: 0}
+    animationController: {fileID: 0}
+    face: {fileID: 0}
+  - sprites: []
+    skinSelect: {fileID: 0}
+    animationController: {fileID: 0}
+    face: {fileID: 0}
+  - sprites: []
+    skinSelect: {fileID: 0}
+    animationController: {fileID: 0}
+    face: {fileID: 0}
+  - sprites: []
+    skinSelect: {fileID: 0}
+    animationController: {fileID: 0}
+    face: {fileID: 0}
+  p1Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  p2Sprites: []
+  p3Sprites: []
+  p4Sprites: []
   player1SkinSelction: {fileID: 1504771639}
   player2SkinSelction: {fileID: 1120592242}
   p1PrevButton: {fileID: 1289340063}
