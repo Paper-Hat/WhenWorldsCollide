@@ -19,6 +19,8 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         public Animator animationController;
         public Image face;
         public Image ReadyButton;
+        public Image PressStart;
+        public Image NoController;
     }
 
     public PlayerSkinChoices[] Players;
