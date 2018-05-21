@@ -97,10 +97,15 @@ public class PlayerAssignment : MonoBehaviour {
     void CheckForJoyPads()
     {
         string[] temp = Input.GetJoystickNames();
-        //because we allow 2 local players on keyboard, the following loop looks nastier than it should
+        //because we allow 2 local players on keyboard, the following loop looks nastier than it shou
         for (int i = 0; i < 4; ++i)
         {
-            if (i < temp.Length)
+            if (i == 0 || i == 1)
+            {
+                if (!PlayerUI[i].activeInHierarchy)
+                    PressStartUI[i].SetActive(true);
+            }
+            else if (i < temp.Length)
             {
                 if (!string.IsNullOrEmpty(temp[i]))
                 {
@@ -110,14 +115,9 @@ public class PlayerAssignment : MonoBehaviour {
                 }
                 else
                 {
-                    if (!PlayerUI[i].activeInHierarchy)
-                        PressStartUI[i].SetActive(true);
-                    if (i > 1)
-                    {
-                        PlayerUI[i].SetActive(false);
-                        PressStartUI[i].SetActive(false);
-                        DisconnectedUI[i].SetActive(true);
-                    }
+                    PressStartUI[i].SetActive(false);
+                    PlayerUI[i].SetActive(false);
+                    DisconnectedUI[i].SetActive(true);
                 }
             }
             else
