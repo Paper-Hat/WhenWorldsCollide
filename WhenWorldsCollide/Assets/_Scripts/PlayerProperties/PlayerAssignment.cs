@@ -22,11 +22,12 @@ public class PlayerAssignment : MonoBehaviour {
 
     private void Update(){
         DeterminePlayerInput();
-        CheckForJoyPads();
+        //CheckForJoyPads();
     }
     private void DeterminePlayerInput()
     {
         if (Input.GetButtonDown("0sK") || Input.GetButtonDown("0sJ")){
+            Debug.Log("0sJ Pressed.");
             if (pselected[0]){
                 //access the array we use as our keys, because modifying an enumeration we are simulatenously using to iterate will cause problems
                 foreach (var p in playerObjs)           
@@ -43,6 +44,7 @@ public class PlayerAssignment : MonoBehaviour {
             }
         }
         else if (Input.GetButtonDown("1sK") || Input.GetButtonDown("1sJ")){
+            Debug.Log("1sJ Pressed.");
             if (pselected[1]){
                 foreach (var p in playerObjs)
                     if (p.GetController().Equals("1"))
