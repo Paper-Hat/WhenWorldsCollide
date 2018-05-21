@@ -9,7 +9,7 @@ public class PlayerAssignment : MonoBehaviour {
     [SerializeField]
     private bool[] pselected = new bool[4];
 
-    public GameObject Player1UI, Player2UI, Player3UI, Player4UI;
+    public GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
     public Player[] playerObjs;
     private int PCtr = 0;
 
@@ -22,12 +22,11 @@ public class PlayerAssignment : MonoBehaviour {
 
     private void Update(){
         DeterminePlayerInput();
-        //CheckForJoyPads();
+        CheckForJoyPads();
     }
     private void DeterminePlayerInput()
     {
         if (Input.GetButtonDown("0sK") || Input.GetButtonDown("0sJ")){
-            Debug.Log("0sJ Pressed.");
             if (pselected[0]){
                 //access the array we use as our keys, because modifying an enumeration we are simulatenously using to iterate will cause problems
                 foreach (var p in playerObjs)           
@@ -35,28 +34,30 @@ public class PlayerAssignment : MonoBehaviour {
                         players[p] = false;             //modify dictionary using key
                 PCtr--;
                 pselected[0] = false;
-                Player1UI.SetActive(false);
+                PlayerUI[0].SetActive(false);
             }
             else if (!pselected[0]){
                 pselected[0] = true;
                 playerObjs[0].SetPID(PCtr++);
-                Player1UI.SetActive(true);
+                PressStartUI[0].SetActive(false);
+                PlayerUI[0].SetActive(true);
             }
         }
         else if (Input.GetButtonDown("1sK") || Input.GetButtonDown("1sJ")){
-            Debug.Log("1sJ Pressed.");
             if (pselected[1]){
                 foreach (var p in playerObjs)
                     if (p.GetController().Equals("1"))
                         players[p] = false;
                 PCtr--;
                 pselected[1] = false;
-                Player2UI.SetActive(false);
+
+                PlayerUI[1].SetActive(false);
             }
             else if (!pselected[1]){
                 playerObjs[1].SetPID(PCtr++);
                 pselected[1] = true;
-                Player2UI.SetActive(true);
+                PressStartUI[1].SetActive(false);
+                PlayerUI[1].SetActive(true);
             }
         }
         else if (Input.GetButtonDown("2s")){
@@ -66,11 +67,14 @@ public class PlayerAssignment : MonoBehaviour {
                         players[p] = false;
                 PCtr--;
                 pselected[2] = false;
-                Player3UI.SetActive(false);
+                PressStartUI[0].SetActive(false);
+                PlayerUI[2].SetActive(false);
             }
             else if (!pselected[2]){
                 playerObjs[2].SetPID(PCtr++);
-                Player3UI.SetActive(true);
+                pselected[2] = true;
+                PressStartUI[2].SetActive(false);
+                PlayerUI[2].SetActive(true);
             }
         }
         else if (Input.GetButtonDown("3s")){
@@ -80,39 +84,44 @@ public class PlayerAssignment : MonoBehaviour {
                         players[p] = false;
                 PCtr--;
                 pselected[3] = false;
-                Player4UI.SetActive(false);
+                PlayerUI[3].SetActive(false);
             }
             else if (!pselected[3]){
                 playerObjs[3].SetPID(PCtr++);
-                Player4UI.SetActive(true);
+                pselected[3] = true;
+                PressStartUI[3].SetActive(false);
+                PlayerUI[3].SetActive(true);
             }
         }
     }
     void CheckForJoyPads()
     {
-        //Get Joystick Names
         string[] temp = Input.GetJoystickNames();
-
-        //Check whether array contains anything
-        if (temp.Length > 0)
+        //because we allow 2 local players on keyboard, the following loop looks nastier than it should
+        for (int i = 0; i < 4; ++i)
         {
-            //Iterate over every element
-            for (int i = 0; i < temp.Length; ++i)
+            if (i < temp.Length)
             {
-                //Check if the string is empty or not
                 if (!string.IsNullOrEmpty(temp[i]))
                 {
-                    //Not empty, controller temp[i] is connected
-                    Debug.Log("Controller " + i + " is connected using: " + temp[i]);
+                    DisconnectedUI[i].SetActive(false);
+                    if (!PlayerUI[i].activeInHierarchy)
+                        PressStartUI[i].SetActive(true);
                 }
                 else
                 {
-                    //If it is empty, controller i is disconnected
-                    //where i indicates the controller number
-                    Debug.Log("Controller: " + i + " is disconnected.");
-
+                    if (!PlayerUI[i].activeInHierarchy)
+                        PressStartUI[i].SetActive(true);
+                    if (i > 1)
+                    {
+                        PlayerUI[i].SetActive(false);
+                        PressStartUI[i].SetActive(false);
+                        DisconnectedUI[i].SetActive(true);
+                    }
                 }
             }
+            else
+                DisconnectedUI[i].SetActive(true);
         }
     }
 }
