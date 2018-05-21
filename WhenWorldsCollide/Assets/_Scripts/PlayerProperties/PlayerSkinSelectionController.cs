@@ -17,7 +17,8 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         public Sprite[] sprites;
         public Image skinSelect;
         public Animator animationController;
-        public Image face;    
+        public Image face;
+        public Image ReadyButton;
     }
 
     public PlayerSkinChoices[] Players;
@@ -32,34 +33,20 @@ public class PlayerSkinSelectionController : MonoBehaviour{
             p.skinSelect.sprite = p.sprites[0];
             p.animationController.SetInteger("SkinID", p.skinIndex);
         }
-        /*
-        //Both player are not ready when the players first go to the skin selection screen
-        p1Ready = false;
-        p2Ready = false;
-        p1Index = PlayerPrefs.GetInt("P1SkinID", 0);
-        p2Index = PlayerPrefs.GetInt("P2SkinID", 0);
-        player1SkinSelction.sprite = p1Sprites[p1Index];
-        player2SkinSelction.sprite = p2Sprites[p2Index];
-        p1AnimationController.SetInteger("SkinID", p1Index);
-        p2AnimationController.SetInteger("SkinID", p2Index);
-        */
     }
 
 
     /// <summary>
-    /// cycles a skin for "player" in the direction of "increment" in the array
+    /// cycles a skin for "player" up the array
     /// </summary>
     /// <param name="player"></param>
-    /// <param name="increment"></param>
-    public void CycleSkin(int player, int increment){
-        Players[player].skinIndex += increment;
-        if (Players[player].skinIndex > Players[player].sprites.Length){
+    public void CycleSkinUp(int player){
+        Players[player].skinIndex++;
+        if (Players[player].skinIndex > Players[player].sprites.Length - 1){
             Players[player].skinIndex = 0;
         }
-        if (Players[player].skinIndex < 0){
-            Players[player].skinIndex = Players[player].sprites.Length;
-        }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
+        Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
         //modify assigned player skinID here too
 
         /**
@@ -108,29 +95,35 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }**/
     }
 
+    /// <summary>
+    /// cycles a skin for the player down the array
+    /// </summary>
+    /// <param name="player"></param>
+    public void CycleSkinDown(int player){
+        Players[player].skinIndex--;
+        if (Players[player].skinIndex < 0) {
+            Players[player].skinIndex = Players[player].sprites.Length - 1;
+        }
+        Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
+        Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
+    }
 
-    public void ToggleReady(int player, Image buttonImage){
+    public void ToggleReady(int player){
         Players[player].ready = !Players[player].ready;
+        Players[player].ReadyButton.color = Players[player].ready ? Color.green : Color.white;
+        Players[player].face.sprite = Players[player].ready ? happyFace : neutralFace;
+
+        _readyCount = 0;
+        foreach (var p in Players){
+            if (p.ready){
+                _readyCount++;
+            }
+        }
     }
 
     private void Update() {
         if (_readyCount == _playerCount) {
             SceneManager.LoadScene("Arena");
         }
-    }
-    
-    public void player1ReadyButton(Image buttonImage) {
-        p1Ready = !p1Ready;
-        buttonImage.color = (p1Ready) ? Color.green : Color.white;
-        p1PrevButton.interactable = !p1Ready;
-        p1NextButton.interactable = !p1Ready;
-        p1Face.sprite = (p1Ready) ? happyFace : neutralFace;
-    }
-    public void player2ReadyButton(Image buttonImage) {
-        p2Ready = !p2Ready;
-        buttonImage.color = (p2Ready) ? Color.green : Color.white;
-        p2PrevButton.interactable = !p2Ready;
-        p2NextButton.interactable = !p2Ready;
-        p2Face.sprite = (p2Ready) ? happyFace : neutralFace;
     }
 }
