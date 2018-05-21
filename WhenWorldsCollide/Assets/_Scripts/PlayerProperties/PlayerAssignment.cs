@@ -1,71 +1,87 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour {
-
-    [SerializeField]
-    public List<Player> players;
+    public Dictionary<Player, bool> players = new Dictionary<Player, bool>();
     [SerializeField]
     private bool[] pselected = new bool[4];
 
+    public GameObject Player1UI, Player2UI, Player3UI, Player4UI;
+    public Player[] playerObjs;
     private int PCtr = 0;
+
+    void Start(){
+        players.Add(playerObjs[0], pselected[0]);
+        players.Add(playerObjs[1], pselected[1]);
+        players.Add(playerObjs[2], pselected[2]);
+        players.Add(playerObjs[3], pselected[3]);
+    }
+
     private void Update(){
         DeterminePlayerInput();
     }
     private void DeterminePlayerInput()
     {
-        if (Input.GetButton("0sK") || Input.GetButton("0sJ")){
+        if (Input.GetButtonDown("0sK") || Input.GetButtonDown("0sJ")){
             if (pselected[0]){
-                foreach (Player p in players)
-                    if (p.GetController().Contains("0"))
-                        players.Remove(p);
+                //access the array we use as our keys, because modifying an enumeration we are simulatenously using to iterate will cause problems
+                foreach (var p in playerObjs)           
+                    if (p.GetController().Equals("0"))  
+                        players[p] = false;             //modify dictionary using key
                 PCtr--;
                 pselected[0] = false;
+                Player1UI.SetActive(false);
             }
             else if (!pselected[0]){
-                players.Add(new Player("0", PCtr++));
                 pselected[0] = true;
+                playerObjs[0].SetPID(PCtr++);
+                Player1UI.SetActive(true);
             }
         }
-        else if (Input.GetButton("1sK") || Input.GetButton("1sJ")){
+        else if (Input.GetButtonDown("1sK") || Input.GetButtonDown("1sJ")){
             if (pselected[1]){
-                foreach (Player p in players)
-                    if (p.GetController().Contains("1"))
-                        players.Remove(p);
+                foreach (var p in playerObjs)
+                    if (p.GetController().Equals("1"))
+                        players[p] = false;
                 PCtr--;
                 pselected[1] = false;
+                Player2UI.SetActive(false);
             }
             else if (!pselected[1]){
-                players.Add(new Player("1", PCtr++));
+                playerObjs[1].SetPID(PCtr++);
                 pselected[1] = true;
+                Player2UI.SetActive(true);
             }
         }
-        else if (Input.GetButton("2s")){
+        else if (Input.GetButtonDown("2s")){
             if (pselected[2]){
-                foreach (Player p in players)
-                    if (p.GetController().Contains("2"))
-                        players.Remove(p);
+                foreach (var p in playerObjs)
+                    if (p.GetController().Equals("2"))
+                        players[p] = false;
                 PCtr--;
                 pselected[2] = false;
+                Player3UI.SetActive(false);
             }
             else if (!pselected[2]){
-                players.Add(new Player("2", PCtr++));
-                pselected[2] = true;
+                playerObjs[2].SetPID(PCtr++);
+                Player3UI.SetActive(true);
             }
         }
-        else if (Input.GetButton("3s")){
+        else if (Input.GetButtonDown("3s")){
             if (pselected[3]){
-                foreach (Player p in players)
-                    if (p.GetController().Contains("2"))
-                        players.Remove(p);
+                foreach (var p in playerObjs)
+                    if (p.GetController().Equals("3"))
+                        players[p] = false;
                 PCtr--;
                 pselected[3] = false;
+                Player4UI.SetActive(false);
             }
             else if (!pselected[3]){
-                players.Add(new Player("3", PCtr++));
-                pselected[3] = true;
+                playerObjs[3].SetPID(PCtr++);
+                Player4UI.SetActive(true);
             }
         }
     }

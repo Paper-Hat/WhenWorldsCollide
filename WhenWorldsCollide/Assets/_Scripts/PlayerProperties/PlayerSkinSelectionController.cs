@@ -35,7 +35,6 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
     }
 
-
     /// <summary>
     /// cycles a skin for "player" up the array
     /// </summary>
@@ -47,52 +46,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
-        //modify assigned player skinID here too
-
-        /**
-        if (player == 1){
-            p1Index += increment;
-            if (p1Index > p1Sprites.Length){
-                p1Index = 0;
-            }
-            if (p1Index < 0){
-                p1Index = p1Sprites.Length;
-            }
-            player1SkinSelction.sprite = p1Sprites[p1Index];
-        }
-
-        if (player == 2) {
-            p2Index += increment;
-            if (p2Index > p2Sprites.Length) {
-                p2Index = 0;
-            }
-            if (p1Index < 0) {
-                p2Index = p2Sprites.Length;
-            }
-            player2SkinSelction.sprite = p2Sprites[p1Index];
-        }
-
-        if (player == 3) {
-            p1Index += increment;
-            if (p3Index > p3Sprites.Length) {
-                p3Index = 0;
-            }
-            if (p1Index < 0) {
-                p1Index = p1Sprites.Length;
-            }
-            player1SkinSelction.sprite = p1Sprites[p1Index];
-        }
-
-        if (player == 4) {
-            p1Index += increment;
-            if (p1Index > p1Sprites.Length) {
-                p1Index = 0;
-            }
-            if (p1Index < 0) {
-                p1Index = p1Sprites.Length;
-            }
-            player1SkinSelction.sprite = p1Sprites[p1Index];
-        }**/
+        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
     /// <summary>
@@ -106,6 +60,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
+        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
     public void ToggleReady(int player){
@@ -122,7 +77,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
     }
 
     private void Update() {
-        if (_readyCount == _playerCount) {
+        if (_readyCount >= 2 && _readyCount == PlayerAssign.players.Count) {
             SceneManager.LoadScene("Arena");
         }
     }
