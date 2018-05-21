@@ -11,8 +11,6 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private int PID;
-    [SerializeField]
     private string ctrlrToUse;
 
     [SerializeField]
@@ -66,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
-        this.PID = GetComponentInParent<Player>().GetPID();
         ctrlrToUse = GetComponentInParent<Player>().GetController();
     }
 
