@@ -15,6 +15,10 @@ public class Player : MonoBehaviour {
     {
         return ctrlr;
     }
+    public void SetController(string c)
+    {
+        ctrlr = c;
+    }
     public int GetPID()
     {
         return PID;

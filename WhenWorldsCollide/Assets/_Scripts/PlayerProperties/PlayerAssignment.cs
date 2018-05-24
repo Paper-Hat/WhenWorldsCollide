@@ -5,14 +5,15 @@ using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour {
-    public Dictionary<Player, bool> players = new Dictionary<Player, bool>();
+    public static Dictionary<Player, bool> players = new Dictionary<Player, bool>();
     [SerializeField]
-    private bool[] pselected = new bool[4];
+    private static bool[] pselected = new bool[4];
 
-    public GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
-    public Player[] playerObjs;
+    [SerializeField]
+    private GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
+
+    public static Player[] playerObjs = new Player[4];
     private int PCtr = 0;
-
     void Start(){
         players.Add(playerObjs[0], pselected[0]);
         players.Add(playerObjs[1], pselected[1]);
@@ -97,7 +98,7 @@ public class PlayerAssignment : MonoBehaviour {
     void CheckForJoyPads()
     {
         string[] temp = Input.GetJoystickNames();
-        //because we allow 2 local players on keyboard, the following loop looks nastier than it shou
+        //because we allow 2 local players on keyboard, the following loop looks nastier than it should
         for (int i = 0; i < 4; ++i)
         {
             if (i == 0 || i == 1)
