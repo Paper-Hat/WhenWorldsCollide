@@ -21,9 +21,9 @@ public class InBoundsDetector : MonoBehaviour
     [SerializeField]
     private UnityEvent onOutOfBounds;
 
+    private void Awake(){playerCollider = gameObject.GetComponentInChildren<CircleCollider2D>();    }
 
-
-	void Update ()
+    void Update ()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCollider.transform.position, playerCollider.radius, boundryLayer);
 
