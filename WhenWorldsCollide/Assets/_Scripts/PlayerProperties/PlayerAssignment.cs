@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour {
 
-    public static Dictionary<Player, bool> players = new Dictionary<Player, bool>();
+    public Dictionary<Player, bool> players = new Dictionary<Player, bool>();
 
     [SerializeField]
     private GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
-
     public Player[] playerObjs;
+    public bool finishedSelection;
     private int PCtr = 0;
-
+    private void Awake(){DontDestroyOnLoad(gameObject);}
     void Start(){
         players.Add(playerObjs[0], false);
         players.Add(playerObjs[1], false);
@@ -21,8 +21,11 @@ public class PlayerAssignment : MonoBehaviour {
         players.Add(playerObjs[3], false);
     }
     private void Update(){
-        DeterminePlayerInput();
-        CheckForJoyPads();
+        if (!finishedSelection)
+        {
+            DeterminePlayerInput();
+            CheckForPlayers();
+        }
     }
     /// <summary>
     /// get the amount of joined players
@@ -106,7 +109,7 @@ public class PlayerAssignment : MonoBehaviour {
             }
         }
     }
-    void CheckForJoyPads()
+    void CheckForPlayers()
     {
         string[] temp = Input.GetJoystickNames();
         //because we allow 2 local players on keyboard, the following loop looks nastier than it should
