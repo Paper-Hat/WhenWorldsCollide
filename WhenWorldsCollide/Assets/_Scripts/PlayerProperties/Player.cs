@@ -11,20 +11,8 @@ public class Player : MonoBehaviour {
         ctrlr = controller;
         PID = playerID;
     }
-    public string GetController()
-    {
-        return ctrlr;
-    }
-    public void SetController(string c)
-    {
-        ctrlr = c;
-    }
-    public int GetPID()
-    {
-        return PID;
-    }
-
-    public void SetPID(int p){
-        PID = p;
-    }
+    public string GetController(){ return ctrlr; }
+    public void SetController(string c){ ctrlr = c; }
+    public int GetPID(){ return PID; }
+    public void SetPID(int p){ PID = p; }
 }

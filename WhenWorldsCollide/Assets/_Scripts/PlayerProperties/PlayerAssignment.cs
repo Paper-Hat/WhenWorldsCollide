@@ -6,20 +6,24 @@ using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour {
 
-    public Dictionary<Player, bool> players = new Dictionary<Player, bool>();
+    public static Dictionary<Player, bool> players = new Dictionary<Player, bool>();
 
     [SerializeField]
     private GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
 
-    public static Player[] playerObjs = new Player[4];
+    public Player[] playerObjs;
     private int PCtr = 0;
+
     void Start(){
         players.Add(playerObjs[0], false);
         players.Add(playerObjs[1], false);
         players.Add(playerObjs[2], false);
         players.Add(playerObjs[3], false);
     }
-
+    private void Update(){
+        DeterminePlayerInput();
+        CheckForJoyPads();
+    }
     /// <summary>
     /// get the amount of joined players
     /// </summary>
@@ -32,11 +36,6 @@ public class PlayerAssignment : MonoBehaviour {
             }
         }
         return joined;
-    }
-
-    private void Update(){
-        DeterminePlayerInput();
-        CheckForJoyPads();
     }
     private void DeterminePlayerInput()
     {
@@ -64,7 +63,6 @@ public class PlayerAssignment : MonoBehaviour {
                         players[p] = false;
                 PCtr--;
                 players[playerObjs[1]] = false;
-
                 PlayerUI[1].SetActive(false);
             }
             else if (!players[playerObjs[1]]) {
