@@ -48,7 +48,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
-        PlayerAssignment.playerObjs[player].SkinID = Players[player].skinIndex;
+        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
-        PlayerAssignment.playerObjs[player].SkinID = Players[player].skinIndex;
+        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
     /// <summary>
