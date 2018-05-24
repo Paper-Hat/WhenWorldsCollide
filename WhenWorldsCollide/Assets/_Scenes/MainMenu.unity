@@ -2324,7 +2324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f488125ae3e43704b9a7efea18a60bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pselected: 00000000
   PlayerUI:
   - {fileID: 447198752}
   - {fileID: 2044023691}
@@ -2847,7 +2846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedf112254f21ec42b244ae5e751325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerAssign: {fileID: 494538100}
+  PlayerAssign: {fileID: 0}
   Players:
   - assignedPlayer: {fileID: 0}
     skinIndex: 0
