@@ -48,7 +48,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
-        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
+        PlayerAssignment.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
     /// <summary>
@@ -62,9 +62,13 @@ public class PlayerSkinSelectionController : MonoBehaviour{
         }
         Players[player].skinSelect.sprite = Players[player].sprites[Players[player].skinIndex];
         Players[player].animationController.SetInteger("SkinID", Players[player].skinIndex);
-        PlayerAssign.playerObjs[player].SkinID = Players[player].skinIndex;
+        PlayerAssignment.playerObjs[player].SkinID = Players[player].skinIndex;
     }
 
+    /// <summary>
+    /// toggles the ready state for the player
+    /// </summary>
+    /// <param name="player"></param>
     public void ToggleReady(int player){
         Players[player].ready = !Players[player].ready;
         Players[player].ReadyButton.color = Players[player].ready ? Color.green : Color.white;
@@ -76,10 +80,8 @@ public class PlayerSkinSelectionController : MonoBehaviour{
                 _readyCount++;
             }
         }
-    }
 
-    private void Update() {
-        if (_readyCount >= 2 && _readyCount == PlayerAssign.players.Count) {
+        if (_readyCount >= 2 && _readyCount == PlayerAssign.GetJoinedCount()) {
             SceneManager.LoadScene("Arena");
         }
     }
