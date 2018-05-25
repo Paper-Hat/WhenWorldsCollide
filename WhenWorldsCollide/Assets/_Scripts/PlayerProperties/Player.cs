@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     [SerializeField] private string ctrlr;
-    private static int PID;
+    private int PID;
     public int SkinID;
     public Player(string controller, int playerID)
     {
