@@ -30,10 +30,9 @@ public class PlayerSkinSelectionController : MonoBehaviour{
     [SerializeField] private Sprite happyFace;
     [SerializeField] private Sprite neutralFace;
 
-    private void Start() {
+    private void Start(){
         foreach (var p in Players){
             p.skinSelect.sprite = p.sprites[0];
-            p.animationController.SetInteger("SkinID", p.skinIndex);
         }
     }
 

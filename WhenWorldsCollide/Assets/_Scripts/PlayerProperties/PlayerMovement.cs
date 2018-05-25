@@ -34,6 +34,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerPickUpHandler pickupHandler;
 
+    /// <summary>
+    /// set the controller for this player
+    /// </summary>
+    /// <param name="controller"></param>
+    public void SetController(string controller){
+        ctrlrToUse = controller;
+    }
 
     [Tooltip("In Seconds")]
     [SerializeField]
@@ -64,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
-        ctrlrToUse = GetComponentInParent<Player>().GetController();
+        //ctrlrToUse = GetComponentInParent<Player>().GetController();
     }
 
     void Update ()

@@ -2881,10 +2881,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e7f259ca79fd6bd419718a2701199cc8, type: 3}
     - {fileID: 21300000, guid: b591c4f7d1702574aaf4de09790e963a, type: 3}
     - {fileID: 21300000, guid: bdd20be3b53f4d94589e1f6b8661a4d6, type: 3}
-    skinSelect: {fileID: 1120592242}
-    animationController: {fileID: 1120592244}
-    face: {fileID: 979027099}
-    ReadyButton: {fileID: 1363756297}
+    skinSelect: {fileID: 973845275}
+    animationController: {fileID: 973845274}
+    face: {fileID: 1146276473}
+    ReadyButton: {fileID: 422396321}
     PressStart: {fileID: 0}
     NoController: {fileID: 1304473756}
   - assignedPlayer: {fileID: 0}
@@ -2894,10 +2894,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e7f259ca79fd6bd419718a2701199cc8, type: 3}
     - {fileID: 21300000, guid: b591c4f7d1702574aaf4de09790e963a, type: 3}
     - {fileID: 21300000, guid: bdd20be3b53f4d94589e1f6b8661a4d6, type: 3}
-    skinSelect: {fileID: 1120592242}
-    animationController: {fileID: 1120592244}
-    face: {fileID: 979027099}
-    ReadyButton: {fileID: 1363756297}
+    skinSelect: {fileID: 1245405943}
+    animationController: {fileID: 1245405942}
+    face: {fileID: 132794526}
+    ReadyButton: {fileID: 1467486074}
     PressStart: {fileID: 0}
     NoController: {fileID: 643001240}
   happyFace: {fileID: 21300000, guid: 6281835c9cd64444db0bd6480911cc5a, type: 3}

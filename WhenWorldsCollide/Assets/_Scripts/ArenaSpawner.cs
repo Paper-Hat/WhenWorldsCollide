@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 
 using Com.LuisPedroFonseca.ProCamera2D;
+using UnityEngine.Networking;
 
 public class ArenaSpawner : MonoBehaviour {
 
@@ -36,7 +37,10 @@ public class ArenaSpawner : MonoBehaviour {
             Debug.Log("Value: " + e.Value);
             Debug.Log("Key: " + e.Key);
             if (e.Value){
-                GameObject temp = Instantiate(player, spawnpts[i].transform.position, Quaternion.identity, p.playerObjs[i].transform);
+                GameObject temp = Instantiate(player, spawnpts[i].transform.position, Quaternion.identity);
+                //assign their controller
+                temp.GetComponent<PlayerMovement>().SetController(p.playerObjs[i].GetComponent<Player>().GetController());
+                temp.GetComponentInChildren<PlayerSkinApplier>().SetPlayerSkinID(e.Key.GetPID(), e.Key.SkinID);
                 ProCamera2D.Instance.AddCameraTarget(temp.transform, 1f, 1f, 0f);
             }
         }
