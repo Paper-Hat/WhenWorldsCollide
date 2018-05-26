@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257957321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.8, y: -19.8, z: 0}
+  m_LocalPosition: {x: -15.7, y: -17.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1704158742}
@@ -1309,6 +1309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1888948370323068, guid: d144c1d939fd93146b3391215e467519, type: 2}
+  spawner: {fileID: 0}
+  p: {fileID: 0}
   spawnpts:
   - {fileID: 1687748443}
   - {fileID: 1356907292}
