@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 58476684712747616}
   - component: {fileID: 114747398297604602}
   - component: {fileID: 114178747913116144}
-  - component: {fileID: 95362846483947868}
+  - component: {fileID: 95391602454254426}
   - component: {fileID: 114318576509970784}
   m_Layer: 0
   m_Name: Player3
@@ -381,7 +381,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!95 &95362846483947868
+--- !u!95 &95391602454254426
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -390,7 +390,7 @@ Animator:
   m_GameObject: {fileID: 1688129118411646}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aef7533459640ea4192f6de81a565141, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0af3d4be498d774784e907eed1ad243, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -466,7 +466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 2
-  anim: {fileID: 95362846483947868}
+  SkinID: 0
+  anim: {fileID: 0}
 --- !u!114 &114446382702580282
 MonoBehaviour:
   m_ObjectHideFlags: 1
