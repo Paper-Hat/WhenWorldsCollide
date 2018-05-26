@@ -1,25 +1,23 @@
 ﻿using UnityEngine;
 
 /// <summary>
-///
-/// Ruben Sanchez
-/// 
+/// Check and report the player that went out of bounds
 /// </summary>
-
 public class EdgeCheck : MonoBehaviour
 {
     public float ArenaSize = 25f;
-    public Transform ArenaCenter; 
-    public GameObject player1, player2;
+    public Vector3 ArenaCenter;
 
-	void Update () 
-	{
-        //cheap way to handle distance checking for OOB
-		if((player1.transform.position - ArenaCenter.position).sqrMagnitude > ArenaSize * ArenaSize) {
-            GameController.instance.HandleWin(1);
-        }
-        if((player2.transform.position - ArenaCenter.position).sqrMagnitude > ArenaSize * ArenaSize) {
-            GameController.instance.HandleWin(0);
-        }
-	}
+    public void Awake(){
+        ArenaSize = GetComponent<CircleCollider2D>().radius;
+        ArenaCenter = transform.position;
+    }
+
+    /// <summary>
+    /// why the fuck were we calculating distance every frame
+    /// </summary>
+    /// <param name="c"></param>
+    void OnTriggerExit2D(Collider2D c){
+        c.GetComponentInParent<PlayerHealth>().Die();;
+    }
 }

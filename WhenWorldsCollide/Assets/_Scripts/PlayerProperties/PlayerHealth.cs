@@ -7,6 +7,8 @@ using UnityEngine.Events;
 /// Manages Health for the player
 /// Ruben Sanchez
 /// 
+/// -and only the health
+/// Joel
 /// </summary>
 
 public class PlayerHealth : MonoBehaviour
@@ -20,19 +22,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private UnityEvent onDeath;
 
-    [SerializeField]
-    private UnityEvent gameOver;
-
-    [SerializeField]
-    private float dZoom;
-
-    [SerializeField]
-    private float dZoomDuration;
+    public delegate void onDeathEvent(int pID);
+    public event onDeathEvent Died;
 
     public int playerID;
 
     private int currentHealth;
-    private Coroutine gameOverCoroutine;
 
     void Start()
     {
@@ -53,26 +48,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        if (gameOverCoroutine == null)
-            gameOverCoroutine = StartCoroutine(GameOverDelay());
-    }
-
-    public IEnumerator GameOverDelay()
-    {
-        yield return new WaitForSeconds(2);
-        gameOver.Invoke();
-        GameController.instance.HandleWin(playerID == 0 ? 1 : 0);
-        gameOverCoroutine = null;
-    }
-
-    public void ZoomInOnWinner()
-    {
-
-        ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
-        ProCamera2D.Instance.Zoom(dZoom, dZoomDuration, EaseType.EaseIn);
+    public void Die(){
         gameObject.SetActive(false);
+        ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
+        Died(playerID);
     }
 
 }

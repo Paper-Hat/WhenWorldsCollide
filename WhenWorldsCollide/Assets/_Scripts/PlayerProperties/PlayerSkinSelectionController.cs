@@ -80,7 +80,7 @@ public class PlayerSkinSelectionController : MonoBehaviour{
             }
         }
 
-        if (_readyCount >= 2 && _readyCount == PlayerAssign.GetJoinedCount()) {
+        if (_readyCount >= 2 && _readyCount == PlayerAssign.GetNewJoinedCount()) {
             PlayerAssign.finishedSelection = true;
             SceneManager.LoadScene("Arena");
         }

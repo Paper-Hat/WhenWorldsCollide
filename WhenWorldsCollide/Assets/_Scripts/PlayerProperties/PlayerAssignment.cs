@@ -27,19 +27,21 @@ public class PlayerAssignment : MonoBehaviour {
             CheckForPlayers();
         }
     }
+
+    int playersJoined = 0;
     /// <summary>
     /// get the amount of joined players
     /// </summary>
     /// <returns></returns>
-    public int GetJoinedCount(){
-        int joined = 0;
+    public int GetNewJoinedCount(){
         foreach (var p in players){
             if (p.Value){
-                joined++;
+                playersJoined++;
             }
         }
-        return joined;
+        return playersJoined;
     }
+
     private void DeterminePlayerInput()
     {
         if (Input.GetButtonDown("0sK") || Input.GetButtonDown("0sJ")){
