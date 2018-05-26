@@ -12,7 +12,7 @@ public class PlayerAssignment : MonoBehaviour {
     private GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
     public Player[] playerObjs;
     public bool finishedSelection;
-    private int PCtr = 0;
+    //private int PCtr = 0;
     private void Awake(){DontDestroyOnLoad(gameObject);}
     void Start(){
         players.Add(playerObjs[0], false);
@@ -48,13 +48,13 @@ public class PlayerAssignment : MonoBehaviour {
                 foreach (var p in playerObjs)           
                     if (p.GetController().Equals("0"))  
                         players[p] = false;             //modify dictionary using key
-                PCtr--;
+                ////PCtr--;
                 players[playerObjs[0]] = false;
                 PlayerUI[0].SetActive(false);
             }
             else if (!players[playerObjs[0]]) {
                 players[playerObjs[0]] = true;
-                playerObjs[0].SetPID(PCtr++);
+                playerObjs[0].SetPID(/*//PCtr++*/0);
                 PressStartUI[0].SetActive(false);
                 PlayerUI[0].SetActive(true);
             }
@@ -64,12 +64,12 @@ public class PlayerAssignment : MonoBehaviour {
                 foreach (var p in playerObjs)
                     if (p.GetController().Equals("1"))
                         players[p] = false;
-                PCtr--;
+                ////PCtr--;
                 players[playerObjs[1]] = false;
                 PlayerUI[1].SetActive(false);
             }
             else if (!players[playerObjs[1]]) {
-                playerObjs[1].SetPID(PCtr++);
+                playerObjs[1].SetPID(/*PCtr++*/1);
                 players[playerObjs[1]] = true;
                 PressStartUI[1].SetActive(false);
                 PlayerUI[1].SetActive(true);
@@ -80,13 +80,13 @@ public class PlayerAssignment : MonoBehaviour {
                 foreach (var p in playerObjs)
                     if (p.GetController().Equals("2"))
                         players[p] = false;
-                PCtr--;
+                ////PCtr--;
                 players[playerObjs[2]] = false;
                 PressStartUI[0].SetActive(false);
                 PlayerUI[2].SetActive(false);
             }
             else if (!players[playerObjs[2]]) {
-                playerObjs[2].SetPID(PCtr++);
+                playerObjs[2].SetPID(/*PCtr++*/2);
                 players[playerObjs[2]] = true;
                 PressStartUI[2].SetActive(false);
                 PlayerUI[2].SetActive(true);
@@ -97,12 +97,12 @@ public class PlayerAssignment : MonoBehaviour {
                 foreach (var p in playerObjs)
                     if (p.GetController().Equals("3"))
                         players[p] = false;
-                PCtr--;
+                ////PCtr--;
                 players[playerObjs[3]] = false;
                 PlayerUI[3].SetActive(false);
             }
             else if (!players[playerObjs[3]]) {
-                playerObjs[3].SetPID(PCtr++);
+                playerObjs[3].SetPID(/*PCtr++*/3);
                 players[playerObjs[3]] = true;
                 PressStartUI[3].SetActive(false);
                 PlayerUI[3].SetActive(true);
