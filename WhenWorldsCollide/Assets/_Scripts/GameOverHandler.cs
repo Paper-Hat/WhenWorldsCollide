@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameOverHandler : MonoBehaviour {
     public GameObject GameOverScreen;
-    public GameObject player1, player2; 
+    public GameObject[] playerScreen; 
 
     void Start() {
         GameController.instance.onVictory += HandleVictoryCanvas;
@@ -20,12 +20,7 @@ public class GameOverHandler : MonoBehaviour {
     /// <param name="player"></param>
     public void HandleVictoryCanvas(int player) {
         GameOverScreen.gameObject.SetActive(true);
-        if(player == 0) {
-            player1.SetActive(true);
-        }
-        if(player == 1) {
-            player2.SetActive(true);
-        }
+        playerScreen[player].SetActive(true);
     }
 
     public void replay() {
