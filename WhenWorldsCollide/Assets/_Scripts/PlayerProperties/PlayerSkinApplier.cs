@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSkinApplier : MonoBehaviour {
-    public int PlayerID = 0;
-    public int SkinID = 0;
     public Animator anim;
 
     public void SetPlayerSkinID(int pID, int sID){
-        PlayerID = pID;
-        SkinID = sID;
-        anim.SetInteger("SkinID", SkinID);
+        anim.SetInteger("PlayerID", pID);
+        anim.SetInteger("SkinID", sID);
     }
 
     void Start() {
