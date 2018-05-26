@@ -34,8 +34,7 @@ public class ArenaSpawner : MonoBehaviour {
         for(int i=0;i<p.players.Count;i++)
         {
             var e = p.players.ElementAt(i);
-            Debug.Log("Value: " + e.Value);
-            Debug.Log("Key: " + e.Key);
+            Debug.Log("Value: " + e.Value + "\n Key: + " + e.Key);
             if (e.Value){
                 GameObject temp = Instantiate(player, spawnpts[i].transform.position, Quaternion.identity);
                 //assign their controller
