@@ -6,22 +6,22 @@ using System.Linq;
 public class SkinByCtrlrInput : MonoBehaviour {
 
     [SerializeField]
-    private int ctrlr;
+    private string ctrlr;
     [SerializeField]
     private PlayerSkinSelectionController pssc;
     [SerializeField]
     bool up, down;
-
-	void Update () {
+    /*void Update () {
         AllowSelectByInput();
 	}
     void AllowSelectByInput()
     {
-        if (Input.GetButtonDown(ctrlr + "sBoost"))
-            pssc.ToggleReady(ctrlr);
-        if (Input.GetAxis(ctrlr + "sHorizontal") > 0)
+        if (Input.GetButtonDown(ctrlr + "Boost")){
+            pssc.ToggleReady(ctrlr[0]);
+        }
+        if (Input.GetAxis(ctrlr + "Horizontal") > 0)
             up = true;
-        else if (Input.GetAxis(ctrlr + "sHorizontal") < 0)
+        else if (Input.GetAxis(ctrlr + "Horizontal") < 0)
             down = true;
         //Cycle skin on release
         else{
@@ -34,5 +34,5 @@ public class SkinByCtrlrInput : MonoBehaviour {
                 down = false;
             }
         }
-    }
+    }*/
 }

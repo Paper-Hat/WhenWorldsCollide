@@ -79,13 +79,13 @@ public class PlayerMovement : MonoBehaviour
         if (!isBoosting && !isKnocked)
         {
             moveDirection = Vector2.zero;
-            moveDirection.x = Input.GetAxis(ctrlrToUse + "sHorizontal");
-            moveDirection.y = Input.GetAxis(ctrlrToUse + "sVertical");
+            moveDirection.x = Input.GetAxis(ctrlrToUse + "Horizontal");
+            moveDirection.y = Input.GetAxis(ctrlrToUse + "Vertical");
             moveDirection = moveDirection.normalized;
             rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
             transform.right = rigidB.velocity.normalized;
         }
-        if (Input.GetButtonDown(ctrlrToUse + "sBoost"))
+        if (Input.GetButtonDown(ctrlrToUse + "Boost"))
         {
             if (boostCoroutine == null)
             {

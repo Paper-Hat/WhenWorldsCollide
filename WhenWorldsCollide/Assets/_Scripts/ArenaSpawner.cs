@@ -31,15 +31,14 @@ public class ArenaSpawner : MonoBehaviour {
     void SpawnPlayers()
     {
         //loops through valid players, instantiates objects with assigned players' controllers
-        for(int i=0;i<p.players.Count;i++)
+        for(int i=0;i<p.playerObjs.Length;i++)
         {
-            var e = p.players.ElementAt(i);
-            Debug.Log("Value: " + e.Value + "\n Key: + " + e.Key);
-            if (e.Value){
+            Debug.Log("PlayerController: " + p.playerObjs[i].GetController());
+            if (!string.IsNullOrEmpty(p.playerObjs[i].GetController())){
                 GameObject temp = Instantiate(player, spawnpts[i].transform.position, Quaternion.identity);
                 //assign their controller
-                temp.GetComponent<PlayerMovement>().SetController(e.Key.GetController());
-                temp.GetComponentInChildren<PlayerSkinApplier>().SetPlayerSkinID(e.Key.GetPID(), e.Key.SkinID);
+                temp.GetComponent<PlayerMovement>().SetController(p.playerObjs[i].GetController());
+                temp.GetComponentInChildren<PlayerSkinApplier>().SetPlayerSkinID(p.playerObjs[i].GetPID(), p.playerObjs[i].SkinID);
                 ProCamera2D.Instance.AddCameraTarget(temp.transform, 1f, 1f, 0f);
             }
         }
