@@ -29,7 +29,7 @@ public class PlayerAssignment : MonoBehaviour {
         {
             PlayerInputCheck();
             AssignPlayerInput();
-            //CheckForPlayers();
+            CheckForPlayers();
         }
     }
 
@@ -65,6 +65,8 @@ public class PlayerAssignment : MonoBehaviour {
                 {
                     //Set controller to match input, set pid to match joined player
                     playerObjs[i].SetValues(di, i);
+                    PressStartUI[i].SetActive(false);
+                    DisconnectedUI[i].SetActive(false);
                     PlayerUI[i].SetActive(true);
                     joinedPlayers++;
                     di = "";
@@ -82,72 +84,6 @@ public class PlayerAssignment : MonoBehaviour {
                 }
             }
         }
-        /*if (Input.GetButtonDown("0sK") || Input.GetButtonDown("0sJ")){
-            if (players[playerObjs[0]]){
-                //access the array we use as our keys, because modifying an enumeration we are simulatenously using to iterate will cause problems
-                foreach (var p in playerObjs)           
-                    if (p.GetController().Equals("0"))  
-                        players[p] = false;             //modify dictionary using key
-                ////PCtr--;
-                players[playerObjs[0]] = false;
-                PlayerUI[0].SetActive(false);
-            }
-            else if (!players[playerObjs[0]]) {
-                players[playerObjs[0]] = true;
-                playerObjs[0].SetPID(//PCtr++0);
-                PressStartUI[0].SetActive(false);
-                PlayerUI[0].SetActive(true);
-            }
-        }
-        else if (Input.GetButtonDown("1sK") || Input.GetButtonDown("1sJ")){
-            if (players[playerObjs[1]]) {
-                foreach (var p in playerObjs)
-                    if (p.GetController().Equals("1"))
-                        players[p] = false;
-                ////PCtr--;
-                players[playerObjs[1]] = false;
-                PlayerUI[1].SetActive(false);
-            }
-            else if (!players[playerObjs[1]]) {
-                playerObjs[1].SetPID(/*PCtr++1);
-                players[playerObjs[1]] = true;
-                PressStartUI[1].SetActive(false);
-                PlayerUI[1].SetActive(true);
-            }
-        }
-        else if (Input.GetButtonDown("2s")){
-            if (players[playerObjs[2]]){
-                foreach (var p in playerObjs)
-                    if (p.GetController().Equals("2"))
-                        players[p] = false;
-                ////PCtr--;
-                players[playerObjs[2]] = false;
-                PressStartUI[0].SetActive(false);
-                PlayerUI[2].SetActive(false);
-            }
-            else if (!players[playerObjs[2]]) {
-                playerObjs[2].SetPID(/*PCtr++2);
-                players[playerObjs[2]] = true;
-                PressStartUI[2].SetActive(false);
-                PlayerUI[2].SetActive(true);
-            }
-        }
-        else if (Input.GetButtonDown("3s")){
-            if (players[playerObjs[3]]) {
-                foreach (var p in playerObjs)
-                    if (p.GetController().Equals("3"))
-                        players[p] = false;
-                ////PCtr--;
-                players[playerObjs[3]] = false;
-                PlayerUI[3].SetActive(false);
-            }
-            else if (!players[playerObjs[3]]) {
-                playerObjs[3].SetPID(/*PCtr++3);
-                players[playerObjs[3]] = true;
-                PressStartUI[3].SetActive(false);
-                PlayerUI[3].SetActive(true);
-            }
-        }*/
     }
     void CheckForPlayers()
     {
@@ -175,8 +111,6 @@ public class PlayerAssignment : MonoBehaviour {
                     DisconnectedUI[i].SetActive(true);
                 }
             }
-            else
-                DisconnectedUI[i].SetActive(true);
         }
     }
 }

@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888948370323068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1471848, y: -2.8304331, z: -0.041822918}
+  m_LocalPosition: {x: -13.776171, y: -8.482838, z: -0.041822918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4545379675172122}
@@ -468,8 +468,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  dZoom: -18
-  dZoomDuration: 3.5
   playerID: 0
 --- !u!114 &114085716795031746
 MonoBehaviour:
@@ -564,11 +562,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114213593086971916, guid: 60e8926cf5925ad4cac4906c432a4c3c,
+          type: 2}
         m_MethodName: SpawnCollectableAtPlayerLocation
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1908499397765984}
+          m_ObjectArgument: {fileID: 1671045275229930}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
