@@ -10,13 +10,13 @@ public class ArenaSpawner : MonoBehaviour {
 
     [SerializeField]
     private GameObject player;
-    [SerializeField]
-    private GameObject spawner;
+    public GameObject spawner;
     [SerializeField]
     private PlayerAssignment p;
     [SerializeField]
     private Transform[] spawnpts;
     private int count = 0;
+    public List<GameObject> playersInArena;
 
     private void Awake()
     {
@@ -42,5 +42,6 @@ public class ArenaSpawner : MonoBehaviour {
                 ProCamera2D.Instance.AddCameraTarget(temp.transform, 1f, 1f, 0f);
             }
         }
+        GameController.instance.SetInGamePlayers(playersInArena);
     }
 }

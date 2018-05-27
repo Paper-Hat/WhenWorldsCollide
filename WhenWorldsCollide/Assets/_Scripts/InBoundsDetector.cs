@@ -7,11 +7,9 @@ using UnityEngine.Events;
 /// 
 /// </summary>
 
+//DONT USE THIS
 public class InBoundsDetector : MonoBehaviour
 {
-    [SerializeField]
-    private CircleCollider2D playerCollider;
-
     [SerializeField]
     private CircleCollider2D boundryCollider;
 
@@ -21,15 +19,27 @@ public class InBoundsDetector : MonoBehaviour
     [SerializeField]
     private UnityEvent onOutOfBounds;
 
-    private void Awake(){playerCollider = gameObject.GetComponentInChildren<CircleCollider2D>();    }
+    [SerializeField]
+    private PlayerHealth[] _players = new PlayerHealth[4];
+
+    private void Start(){
+        boundryCollider = gameObject.GetComponentInChildren<CircleCollider2D>();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(boundryCollider.transform.position, boundryCollider.radius, boundryLayer);
+
+        for (int i = 0; i < colliders.Length; i++){
+            _players[i] = colliders[i].GetComponent<PlayerHealth>();
+        }
+    }
 
     void Update ()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCollider.transform.position, playerCollider.radius, boundryLayer);
-
-        if (colliders.Length == 0)
-        {
-            onOutOfBounds.Invoke();
+        foreach (var c in _players){
+            if (c != null){
+                if ((c.transform.position - boundryCollider.transform.position).sqrMagnitude >
+                    boundryCollider.radius * boundryCollider.radius){
+                    Debug.Log("OUT" + c);
+                }
+            }
         }
     }
 }

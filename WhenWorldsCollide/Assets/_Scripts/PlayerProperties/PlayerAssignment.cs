@@ -32,18 +32,13 @@ public class PlayerAssignment : MonoBehaviour {
             //CheckForPlayers();
         }
     }
+
+    int playersJoined = 0;
     /// <summary>
     /// get the amount of joined players
     /// </summary>
     /// <returns></returns>
     public int GetJoinedCount(){
-        /*int joined = 0;
-        foreach (var p in players){
-            if (p.Value){
-                joined++;
-            }
-        }
-        return joined;*/
         return joinedPlayers;
     }
     private void PlayerInputCheck()
