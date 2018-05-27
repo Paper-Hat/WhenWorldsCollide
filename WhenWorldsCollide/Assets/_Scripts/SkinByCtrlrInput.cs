@@ -12,12 +12,17 @@ public class SkinByCtrlrInput : MonoBehaviour {
     [SerializeField]
     private PlayerSkinSelectionController pssc;
     [SerializeField]
+    private Player p;
+    [SerializeField]
     bool up, down;
-    /*void Update () {
+    void Update () {
         AllowSelectByInput();
 	}
     void AllowSelectByInput()
     {
+        //Needs to continually refresh
+        player = p.GetPID();
+        ctrlr = p.GetController();
         if (Input.GetButtonDown(ctrlr + "Boost")){
             pssc.ToggleReady(player);
         }
@@ -36,5 +41,5 @@ public class SkinByCtrlrInput : MonoBehaviour {
                 down = false;
             }
         }
-    }*/
+    }
 }

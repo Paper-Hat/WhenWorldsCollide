@@ -36,7 +36,7 @@ public class PlayerAssignment : MonoBehaviour {
         {
             PlayerInputCheck();
             AssignPlayerInput();
-            CheckForPlayers();
+            //CheckForPlayers();
         }
     }
 
@@ -94,32 +94,28 @@ public class PlayerAssignment : MonoBehaviour {
             }
         }
     }
-    void CheckForPlayers()
+    /*void CheckForPlayers()
     {
         string[] temp = Input.GetJoystickNames();
         //because we allow 2 local players on keyboard, the following loop looks nastier than it should
+        if (!PlayerUI[0].activeInHierarchy)
+            PressStartUI[0].SetActive(true);
+        if (!PlayerUI[1].activeInHierarchy)
+            PressStartUI[0].SetActive(true);
         for (int i = 0; i < 4; ++i)
         {
-            if (i == 0 || i == 1)
+            if (!string.IsNullOrEmpty(temp[i]))
             {
+                DisconnectedUI[i].SetActive(false);
                 if (!PlayerUI[i].activeInHierarchy)
                     PressStartUI[i].SetActive(true);
             }
-            else if (i < temp.Length)
+            else
             {
-                if (!string.IsNullOrEmpty(temp[i]))
-                {
-                    DisconnectedUI[i].SetActive(false);
-                    if (!PlayerUI[i].activeInHierarchy)
-                        PressStartUI[i].SetActive(true);
-                }
-                else
-                {
-                    PressStartUI[i].SetActive(false);
-                    PlayerUI[i].SetActive(false);
-                    DisconnectedUI[i].SetActive(true);
-                }
+                PressStartUI[i].SetActive(false);
+                PlayerUI[i].SetActive(false);
+                DisconnectedUI[i].SetActive(true);
             }
         }
-    }
+    }*/
 }

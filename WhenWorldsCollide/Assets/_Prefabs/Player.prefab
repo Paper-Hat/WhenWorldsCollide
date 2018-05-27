@@ -562,12 +562,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114213593086971916, guid: 60e8926cf5925ad4cac4906c432a4c3c,
-          type: 2}
-        m_MethodName: SpawnCollectableAtPlayerLocation
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1671045275229930}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

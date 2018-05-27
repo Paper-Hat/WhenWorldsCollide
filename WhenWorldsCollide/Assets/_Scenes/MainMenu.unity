@@ -2099,8 +2099,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrlr: 0
+  player: 0
   pssc: {fileID: 593960848}
-  sensitivity: 0.195
+  p: {fileID: 1246013788}
+  up: 0
+  down: 0
 --- !u!1 &451025146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2363,7 @@ MonoBehaviour:
   - {fileID: 797076367}
   - {fileID: 2075319963}
   finishedSelection: 0
+  joinedPlayers: 0
 --- !u!4 &494538101
 Transform:
   m_ObjectHideFlags: 0
@@ -3733,7 +3737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da5f13843e19164aba7b409424f6626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrlr: 2
   SkinID: 0
 --- !u!4 &797076368
 Transform:
@@ -4277,7 +4280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da5f13843e19164aba7b409424f6626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrlr: 1
   SkinID: 0
 --- !u!4 &1028561674
 Transform:
@@ -5983,7 +5985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da5f13843e19164aba7b409424f6626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrlr: 0
   SkinID: 0
 --- !u!4 &1246013789
 Transform:
@@ -7678,8 +7679,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrlr: 3
+  player: 0
   pssc: {fileID: 593960848}
-  sensitivity: 0
+  p: {fileID: 2075319963}
+  up: 0
+  down: 0
 --- !u!1 &1531111826
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,8 +8555,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrlr: 2
+  player: 0
   pssc: {fileID: 593960848}
-  sensitivity: 0
+  p: {fileID: 797076367}
+  up: 0
+  down: 0
 --- !u!1 &1778608758
 GameObject:
   m_ObjectHideFlags: 0
@@ -10819,8 +10826,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrlr: 1
+  player: 0
   pssc: {fileID: 593960848}
-  sensitivity: 0
+  p: {fileID: 1028561673}
+  up: 0
+  down: 0
 --- !u!1 &2063770926
 GameObject:
   m_ObjectHideFlags: 0
@@ -10934,7 +10944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da5f13843e19164aba7b409424f6626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrlr: 3
   SkinID: 0
 --- !u!4 &2075319964
 Transform:
