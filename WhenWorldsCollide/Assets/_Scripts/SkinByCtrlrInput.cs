@@ -17,13 +17,14 @@ public class SkinByCtrlrInput : MonoBehaviour {
 	}
     void AllowSelectByInput()
     {
+        if (Input.GetButtonDown(ctrlr + "sBoost"))
+            pssc.ToggleReady(ctrlr);
         if (Input.GetAxis(ctrlr + "sHorizontal") > 0)
             up = true;
         else if (Input.GetAxis(ctrlr + "sHorizontal") < 0)
             down = true;
         //Cycle skin on release
-        else
-        {
+        else{
             if (up){
                 pssc.CycleSkinUp(ctrlr);
                 up = false;
