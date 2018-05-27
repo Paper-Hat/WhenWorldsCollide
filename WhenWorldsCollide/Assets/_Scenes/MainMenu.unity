@@ -2102,8 +2102,7 @@ MonoBehaviour:
   player: 0
   pssc: {fileID: 593960848}
   p: {fileID: 1246013788}
-  up: 0
-  down: 0
+  cycleSpeed: 0.3
 --- !u!1 &451025146
 GameObject:
   m_ObjectHideFlags: 0
@@ -7682,8 +7681,7 @@ MonoBehaviour:
   player: 0
   pssc: {fileID: 593960848}
   p: {fileID: 2075319963}
-  up: 0
-  down: 0
+  cycleSpeed: 0.3
 --- !u!1 &1531111826
 GameObject:
   m_ObjectHideFlags: 0
@@ -8558,8 +8556,7 @@ MonoBehaviour:
   player: 0
   pssc: {fileID: 593960848}
   p: {fileID: 797076367}
-  up: 0
-  down: 0
+  cycleSpeed: 0.3
 --- !u!1 &1778608758
 GameObject:
   m_ObjectHideFlags: 0
@@ -10829,8 +10826,7 @@ MonoBehaviour:
   player: 0
   pssc: {fileID: 593960848}
   p: {fileID: 1028561673}
-  up: 0
-  down: 0
+  cycleSpeed: 0.3
 --- !u!1 &2063770926
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,9 @@ public class SkinByCtrlrInput : MonoBehaviour {
     [SerializeField]
     private Player p;
     [SerializeField]
-    bool up, down;
+    private float cycleSpeed;
+    private Coroutine cycleUp;
+    private Coroutine cycleDown;
     void Update () {
         AllowSelectByInput();
 	}
@@ -27,19 +29,26 @@ public class SkinByCtrlrInput : MonoBehaviour {
             pssc.ToggleReady(player);
         }
         if (Input.GetAxis(ctrlr + "Horizontal") > 0)
-            up = true;
-        else if (Input.GetAxis(ctrlr + "Horizontal") < 0)
-            down = true;
-        //Cycle skin on release
-        else{
-            if (up){
-                pssc.CycleSkinUp(player);
-                up = false;
-            }
-            else if(down){
-                pssc.CycleSkinDown(player);
-                down = false;
-            }
+        {
+            if (cycleUp == null && cycleDown == null)
+                cycleUp = StartCoroutine(CycleUpCo());
         }
+        else if (Input.GetAxis(ctrlr + "Horizontal") < 0)
+        {
+            if (cycleUp == null && cycleDown == null)
+                cycleDown = StartCoroutine(CycleDownCo());
+        }
+    }
+    private IEnumerator CycleDownCo()
+    {
+        pssc.CycleSkinDown(player);
+        yield return new WaitForSeconds(cycleSpeed);
+        cycleDown = null;
+    }
+    private IEnumerator CycleUpCo()
+    {
+        pssc.CycleSkinUp(player);
+        yield return new WaitForSeconds(cycleSpeed);
+        cycleUp = null;
     }
 }
