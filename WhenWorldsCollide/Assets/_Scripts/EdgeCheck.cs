@@ -18,6 +18,6 @@ public class EdgeCheck : MonoBehaviour
     /// </summary>
     /// <param name="c"></param>
     void OnTriggerExit2D(Collider2D c){
-        c.GetComponentInParent<PlayerHealth>().Die();;
+        c.GetComponentInParent<PlayerHealth>().Die();
     }
 }
