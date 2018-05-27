@@ -8,6 +8,8 @@ public class SkinByCtrlrInput : MonoBehaviour {
     [SerializeField]
     private string ctrlr;
     [SerializeField]
+    private int player;
+    [SerializeField]
     private PlayerSkinSelectionController pssc;
     [SerializeField]
     bool up, down;
@@ -17,7 +19,7 @@ public class SkinByCtrlrInput : MonoBehaviour {
     void AllowSelectByInput()
     {
         if (Input.GetButtonDown(ctrlr + "Boost")){
-            pssc.ToggleReady(ctrlr[0]);
+            pssc.ToggleReady(player);
         }
         if (Input.GetAxis(ctrlr + "Horizontal") > 0)
             up = true;
@@ -26,11 +28,11 @@ public class SkinByCtrlrInput : MonoBehaviour {
         //Cycle skin on release
         else{
             if (up){
-                pssc.CycleSkinUp(ctrlr);
+                pssc.CycleSkinUp(player);
                 up = false;
             }
             else if(down){
-                pssc.CycleSkinDown(ctrlr);
+                pssc.CycleSkinDown(player);
                 down = false;
             }
         }
