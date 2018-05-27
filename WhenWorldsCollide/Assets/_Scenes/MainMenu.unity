@@ -2056,6 +2056,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 447198753}
+  - component: {fileID: 447198754}
   m_Layer: 5
   m_Name: P1SelectedUI
   m_TagString: Untagged
@@ -2086,6 +2087,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &447198754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447198752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505d27b1032095c4c92916c3a72b85a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrlr: 0
+  pssc: {fileID: 593960848}
+  sensitivity: 0.195
 --- !u!1 &451025146
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,6 +7635,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1525881347}
+  - component: {fileID: 1525881348}
   m_Layer: 5
   m_Name: P4SelectedUI
   m_TagString: Untagged
@@ -7650,6 +7666,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1525881348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525881346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505d27b1032095c4c92916c3a72b85a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrlr: 3
+  pssc: {fileID: 593960848}
+  sensitivity: 0
 --- !u!1 &1531111826
 GameObject:
   m_ObjectHideFlags: 0
@@ -8478,6 +8508,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1759567929}
+  - component: {fileID: 1759567930}
   m_Layer: 5
   m_Name: P3SelectedUI
   m_TagString: Untagged
@@ -8508,6 +8539,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1759567930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1759567928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505d27b1032095c4c92916c3a72b85a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrlr: 2
+  pssc: {fileID: 593960848}
+  sensitivity: 0
 --- !u!1 &1778608758
 GameObject:
   m_ObjectHideFlags: 0
@@ -10731,6 +10776,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2044023692}
+  - component: {fileID: 2044023693}
   m_Layer: 5
   m_Name: P2SelectedUI
   m_TagString: Untagged
@@ -10761,6 +10807,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2044023693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044023691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505d27b1032095c4c92916c3a72b85a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrlr: 1
+  pssc: {fileID: 593960848}
+  sensitivity: 0
 --- !u!1 &2063770926
 GameObject:
   m_ObjectHideFlags: 0
