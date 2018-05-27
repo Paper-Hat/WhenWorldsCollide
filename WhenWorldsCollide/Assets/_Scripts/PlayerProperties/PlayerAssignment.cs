@@ -10,6 +10,7 @@ public class PlayerAssignment : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] PlayerUI, DisconnectedUI, PressStartUI;
+    private Dictionary<string, bool> _assignedControllers = new Dictionary<string, bool>(6);
     public Player[] playerObjs;
     public bool finishedSelection;
     private string di;
@@ -19,6 +20,12 @@ public class PlayerAssignment : MonoBehaviour {
     private void Awake(){DontDestroyOnLoad(gameObject);}
     void Start(){
         joinedPlayers = 0;
+        _assignedControllers.Add("0K", false);
+        _assignedControllers.Add("0J", false);
+        _assignedControllers.Add("1K", false);
+        _assignedControllers.Add("1J", false);
+        _assignedControllers.Add("2s", false);
+        _assignedControllers.Add("3s", false);
         /*players.Add(playerObjs[0], false);
         players.Add(playerObjs[1], false);
         players.Add(playerObjs[2], false);
@@ -61,9 +68,10 @@ public class PlayerAssignment : MonoBehaviour {
         //Note: will iterate, but not assign controllers past the 4th input scheme recognized
         if (!string.IsNullOrEmpty(di)){
             for (int i = 0; i < 4; i++){
-                if (string.IsNullOrEmpty(playerObjs[i].GetController()))
+                if (string.IsNullOrEmpty(playerObjs[i].GetController()) && !_assignedControllers[di])
                 {
                     //Set controller to match input, set pid to match joined player
+                    _assignedControllers[di] = true;
                     playerObjs[i].SetValues(di, i);
                     PressStartUI[i].SetActive(false);
                     DisconnectedUI[i].SetActive(false);
@@ -73,8 +81,9 @@ public class PlayerAssignment : MonoBehaviour {
                     //Stop after assigning first null player
                     break;
                 }
-                else if (di.Equals(playerObjs[i].GetController()))
+                if (di.Equals(playerObjs[i].GetController()) && _assignedControllers[di])
                 {
+                    _assignedControllers[di] = false;
                     playerObjs[i].SetController("");
                     PlayerUI[i].SetActive(false);
                     joinedPlayers--;

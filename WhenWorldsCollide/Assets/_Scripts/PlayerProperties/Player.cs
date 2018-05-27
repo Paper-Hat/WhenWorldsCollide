@@ -10,6 +10,11 @@ public class Player : MonoBehaviour {
     public void SetController(string c){ ctrlr = c; }
     public int GetPID(){ return PID; }
     public void SetPID(int p){ PID = p; }
+    /// <summary>
+    /// sets the controller and id
+    /// </summary>
+    /// <param name="c">Controller</param>
+    /// <param name="p">ID</param>
     public void SetValues(string c, int p)
     {
         ctrlr = c;
