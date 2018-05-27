@@ -39,6 +39,7 @@ public class ArenaSpawner : MonoBehaviour {
                 //assign their controller
                 temp.GetComponent<PlayerMovement>().SetController(p.playerObjs[i].GetController());
                 temp.GetComponentInChildren<PlayerSkinApplier>().SetPlayerSkinID(p.playerObjs[i].GetPID(), p.playerObjs[i].SkinID);
+                playersInArena.Add(temp);
                 ProCamera2D.Instance.AddCameraTarget(temp.transform, 1f, 1f, 0f);
             }
         }
