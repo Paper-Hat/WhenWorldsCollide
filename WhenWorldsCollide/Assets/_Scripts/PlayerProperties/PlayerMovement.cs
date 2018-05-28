@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerPickUpHandler pickupHandler;
 
+    public void Start() { Input.ResetInputAxes(); }
     /// <summary>
     /// set the controller for this player
     /// </summary>
